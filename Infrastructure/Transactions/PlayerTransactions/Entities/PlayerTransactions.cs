@@ -8,7 +8,7 @@ namespace Infrastructure.Transactions
     public class PlayerTransactions : IPlayerTransactions
     {
 
-        public async Task<dynamic> GetPlayers()
+        public async Task<IList<object>> GetPlayers()
         {
             List<object> result = null;
 
@@ -18,9 +18,7 @@ namespace Infrastructure.Transactions
                 {
                     var objects = new List<object>();
 
-                    var reader = await tx.RunAsync(
-                        "MATCH (n)-[r]->(m) RETURN n,r,m"
-                    );
+                    var reader = await tx.RunAsync("MATCH (n)-[r]->(m) RETURN n,r,m");
 
                     while (await reader.FetchAsync())
                     {

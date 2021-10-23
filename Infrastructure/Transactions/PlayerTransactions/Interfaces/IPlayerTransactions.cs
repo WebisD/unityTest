@@ -5,7 +5,9 @@ namespace Infrastructure.Transactions.Player
 {
     public interface IPlayerTransactions
     {
-        Task<dynamic> GetPlayers();
+        Task<IList<object>> GetPlayers();
+
+        //Task SavePlayer();
         
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Reflection;
-using Infrastructure.DbConnection;
+using System.Collections.Generic;
 using Infrastructure.Transactions;
 
 namespace TestProject
@@ -9,13 +8,22 @@ namespace TestProject
     {
         static void Main(string[] args)
         {
-            var conn = Connection.GetConnection();
             var transactions = new PlayerTransactions();
 
-            var x = transactions.GetPlayers().GetAwaiter().GetResult();
+            var objects = transactions.GetPlayers().GetAwaiter().GetResult();
 
+            foreach(var item in objects)
+            {
+                var propertyInfo = item.GetType().GetProperty("Properties");
+                var value = propertyInfo.GetValue(item, null);
+                
+                foreach(var property in (value as IReadOnlyDictionary<string, object>))
+                {
+                    Console.WriteLine($"{property.Key} = {property.Value}");
+                }
 
-            Console.WriteLine(x.Count);
+                Console.WriteLine("\n");
+            }
             
         }
     }
