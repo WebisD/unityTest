@@ -8,9 +8,9 @@ namespace TestProject
     {
         static void Main(string[] args)
         {
-            var transactions = new PlayerTransactions();
+            var transactions = new Transactions();
 
-            var objects = transactions.GetPlayers().GetAwaiter().GetResult();
+            var objects = transactions.GetNodes().GetAwaiter().GetResult();
 
             foreach(var item in objects)
             {

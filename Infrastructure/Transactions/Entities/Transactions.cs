@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrastructure.DbConnection;
-using Infrastructure.Transactions.Player;
 
 namespace Infrastructure.Transactions
 {
-    public class PlayerTransactions : IPlayerTransactions
+    public class Transactions : ITransactions
     {
 
-        public async Task<IList<object>> GetPlayers()
+        public async Task<IList<object>> GetNodes()
         {
             List<object> result = null;
 
