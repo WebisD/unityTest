@@ -1,6 +1,6 @@
-using Infrastructure.Transactions.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Infrastructure.Models;
 
 namespace Infrastructure.Transactions.Utils
 {

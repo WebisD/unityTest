@@ -1,4 +1,4 @@
-namespace Infrastructure.Transactions.Models
+namespace Infrastructure.Models
 {
     public class Character
     {
