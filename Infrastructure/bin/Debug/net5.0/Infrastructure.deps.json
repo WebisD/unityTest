@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "Infrastructure/1.0.0": {
         "dependencies": {
-          "Neo4j.Driver.Simple": "4.3.2"
+          "Neo4j.Driver.Simple": "4.3.2",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -58,6 +59,14 @@
           "lib/net5.0/Neo4j.Driver.Simple.dll": {
             "assemblyVersion": "4.3.2.2",
             "fileVersion": "4.3.2.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
           }
         }
       },
@@ -598,6 +607,13 @@
       "sha512": "sha512-sz7jXe9TdaJyqp8CfJ2rL2hoJQ2v3y7YnFplk9esg0RxM1pzekMqVEOnoivAveYHhe4BDW1/cJSyO4AHtfhb6Q==",
       "path": "neo4j.driver.simple/4.3.2",
       "hashPath": "neo4j.driver.simple.4.3.2.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

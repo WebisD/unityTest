@@ -14,6 +14,10 @@ namespace TestProject
 
             foreach(var item in objects)
             {
+                Console.WriteLine(item.ToString());
+            }
+            /*foreach(var item in objects)
+            {
                 var propertyInfo = item.GetType().GetProperty("Properties");
                 var value = propertyInfo.GetValue(item, null);
                 
@@ -23,7 +27,7 @@ namespace TestProject
                 }
 
                 Console.WriteLine("\n");
-            }
+            }*/
             
         }
     }
