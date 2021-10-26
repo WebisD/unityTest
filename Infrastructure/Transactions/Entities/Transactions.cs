@@ -1,15 +1,17 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Infrastructure.DbConnection;
-using Infrastructure.Transactions.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Infrastructure.DbConnection;
+using Infrastructure.Transactions.Utils;
+using Infrastructure.Transactions.Constants;
 
 namespace Infrastructure.Transactions
 {
     public class Transactions : ITransactions
     {
-        public async Task<IList<dynamic>> GetNodes()
+        public async Task<IList<dynamic>> GetNodesAsync()
         {
             List<dynamic> result = null;
             var session = Connection.GetConnection()._driver.AsyncSession();
@@ -20,7 +22,7 @@ namespace Infrastructure.Transactions
                 {
                     var objects = new List<dynamic>();
 
-                    var reader = await tx.RunAsync("MATCH (n)-[r]->(m) RETURN n,r,m");
+                    var reader = await tx.RunAsync(QueriesConstants.MatchNodes);
 
                     while (await reader.FetchAsync())
                     {
@@ -44,5 +46,27 @@ namespace Infrastructure.Transactions
             return result;
         }
 
+        public async Task<string> CreateCharacterAsync()
+        {
+            var guid = Guid.NewGuid().ToString();
+            var session = Connection.GetConnection()._driver.AsyncSession();
+
+            try
+            {
+                await session.WriteTransactionAsync(async tx =>
+                {
+                    await tx.RunAsync(
+                        query: QueriesConstants.CreateCharacter,
+                        parameters: new { Id = guid }
+                    );
+                });
+            }
+            finally
+            {
+                await session.CloseAsync();
+            }
+
+            return guid;
+        } 
     }
 }

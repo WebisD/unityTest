@@ -12,12 +12,12 @@ namespace Infrastructure.Transactions
             -> uma query para ligar personagem e item
         */
 
-        Task<IList<dynamic>> GetNodes();
+        Task<IList<dynamic>> GetNodesAsync();
 
-        //Task SaveNodes(EnumVilaoJogadorItem enum);
+        //Task SaveNodesAsync(EnumVilaoJogadorItem enum);
 
-        //Task DeleteNodes(int nodeId)
+        //Task DeleteNodeAsync(int nodeId)
 
-        //Task ConnectNodes(int firstNode, int secondNode)
+        //Task ConnectNodesAsync(int firstNode, int secondNode)
     }
 }
